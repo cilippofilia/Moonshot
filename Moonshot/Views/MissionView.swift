@@ -24,30 +24,29 @@ struct MissionView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: geo.size.width * 0.65)
-                        .padding(.top)
+                        .padding(.vertical)
+
+                    // Challenge 1
+                    Text("Launch Date:")
+                    Text(mission.formattedLaunchDate)
+                        .font(.headline)
+                        .foregroundColor(.white)
 
 
                     VStack(alignment: .leading) {
-                        Rectangle()
-                            .frame(height: 2)
-                            .foregroundColor(.lightBackground)
-                            .padding(.vertical)
+                        DividerView()
 
                         Text("Mission Highlights")
                             .font(.title.bold())
-                            .padding(.bottom, 5)
+                            .padding(.bottom, 10)
 
                         Text(mission.description)
 
-                        Rectangle()
-                            .frame(height: 2)
-                            .foregroundColor(.lightBackground)
-                            .padding(.vertical)
+                        DividerView()
 
                         Text("Crew")
                             .font(.title.bold())
-                            .padding(.bottom, 5)
-
+                            .padding(.bottom, 10)
                     }
                     .padding(.horizontal)
 
@@ -85,9 +84,9 @@ struct MissionView: View {
                 .padding(.bottom)
             }
         }
+//        .background(.darkBackground)
         .navigationTitle(mission.displayName)
         .navigationBarTitleDisplayMode(.inline)
-        .background(.darkBackground)
     }
 
     init(mission: Mission, astronauts: [String: Astronaut]) {
